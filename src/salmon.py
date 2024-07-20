@@ -61,7 +61,7 @@ def generate_cmd(output: str, files: List[str], sci_name: str, n_jobs: int = 10)
 
     os.makedirs(output, exist_ok=True)
 
-    cmd = f"salmon quant -i {REFS[sci_name.strip()]} -l A --validateMappings -o {output} -p {n_jobs}"
+    cmd = f"salmon quant -i {REFS[sci_name.strip()]} -l A --validateMappings --numBootstraps 100 -o {output} -p {n_jobs}"
     if fqs1 and fqs2:
         cmd = f"{cmd} -1 <(zcat {' '.join(sorted(fqs1))}) -2 <(zcat {' '.join(sorted(fqs2))})"
     elif fqs:
