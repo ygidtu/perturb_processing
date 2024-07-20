@@ -5,7 +5,6 @@ from src.rmats import main as rmats
 from src.download import download
 from src.star import run_star
 from src.salmon import main as salmon
-from src.sleuth import main as sleuth
 from src.trimmomatic import main as trimmomatic
 from configparser import ConfigParser
 
@@ -25,6 +24,5 @@ if __name__ == '__main__':
         "download": download,
         "star": run_star,
         "salmon": salmon,
-        "sleuth": sleuth,
         "trimmomatic": trimmomatic,
     })

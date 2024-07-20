@@ -20,12 +20,15 @@ from tqdm import tqdm
 
 from db.models import RawData
 
+__DIR__ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+__DIR__ = os.path.join(__DIR__, "adapters")
 
-TRIMMOMATIC = f"java -jar trimmomatic-0.39.jar"
+
+TRIMMOMATIC = f"java -jar {__DIR__}/trimmomatic-0.39.jar"
 
 PARAMS = {
-    "PE": "ILLUMINACLIP:TruSeq3-PE.fa:2:30:10:2:True LEADING:3 TRAILING:3 MINLEN:36",
-    "SE": "ILLUMINACLIP:TruSeq3-SE:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:36"
+    "PE": f"ILLUMINACLIP:{__DIR__}/PE.fa:2:30:10:2:True LEADING:3 TRAILING:3 MINLEN:36",
+    "SE": f"ILLUMINACLIP:{__DIR__}/SE:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:36"
 }
 
 
