@@ -7,7 +7,7 @@ rds_file <-
              pattern = '*.Rds',
              full.names = T)
 
-go_inf <- readRDS('/mnt/raid61/Ref/OrySat/release52/GO_inf.Rds')
+go_inf <- readRDS('OrySat/release52/GO_inf.Rds')
 
 parallel::mclapply(rds_file, function(x) {
   alias_id <- stringr::str_replace_all(basename(x), '[.]Rds', '')
